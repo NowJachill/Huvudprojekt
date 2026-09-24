@@ -11,18 +11,23 @@
 # total_genererad_el (MWh)
 #Matte/logik - producera_el(avledd_värme): räknar ut elektricitet
 #Matten här kan vara en verklighetsgrad(t.ex. att 35% av den termiska värmen blir till el).
+import random
 while True:
     try:
-        läge=int(input("Meny - inloggning: \n1: JENSEN\n2: Friläge\n3: Avsluta\n"))
-        if läge==1:
+        meny=int(input("Meny - inloggning: \n1: JENSEN\n2: Friläge\n3: Random\n4: Avsluta\n"))
+        if meny==1:
             temperatur=150
-            kontrollstavar_nivå=50
-            anrikat_bränsle=5
-        elif läge==2:
+            kontrollstavar_niva=50
+            anrikat_bransle=5
+        elif meny==2:
             temperatur=float(input("Temperaturen: "))
-            kontrollstavar_nivå=float(input("Nivå på kontrollstavar: "))
-            anrikat_bränsle=float(input("Mängd uran kvar i procent: "))
-        elif läge==3:
+            kontrollstavar_niva=float(input("Nivå på kontrollstavar: "))
+            anrikat_bransle=float(input("Mängd uran kvar i procent: "))
+        elif meny==3:
+            temperatur=random.uniform
+            kontrollstavar_niva=random.uniform
+            anrikat_bransle=random.uniform
+        elif meny==4:
             print("Programmet avslutas...")
             break
         else:
