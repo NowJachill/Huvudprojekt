@@ -12,20 +12,25 @@
 #Matte/logik - producera_el(avledd_värme): räknar ut elektricitet
 #Matten här kan vara en verklighetsgrad(t.ex. att 35% av den termiska värmen blir till el).
 import random
+password="0ab7"
+kontrollstavar_niva=100
 while True:
     try:
         meny=int(input("Meny - inloggning: \n1: JENSEN\n2: Friläge\n3: Random\n4: Avsluta\n"))
         if meny==1:
-            temperatur=150
-            kontrollstavar_niva=50
-            anrikat_bransle=5
+            for i in range(5):
+                user_password=input(f"Försök kvar: {5-i}\nVänligen ange lösenordet: ")
+                if password==user_password:
+                    temperatur=150
+                    anrikat_bransle=5
+                    print("Lyckades!")
+                    print(temperatur, anrikat_bransle)
+                    break
         elif meny==2:
             temperatur=float(input("Temperaturen: "))
-            kontrollstavar_niva=float(input("Nivå på kontrollstavar: "))
             anrikat_bransle=float(input("Mängd uran kvar i procent: "))
         elif meny==3:
             temperatur=random.uniform
-            kontrollstavar_niva=random.uniform
             anrikat_bransle=random.uniform
         elif meny==4:
             print("Programmet avslutas...")
