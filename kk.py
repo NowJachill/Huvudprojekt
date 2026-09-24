@@ -14,6 +14,26 @@
 import random
 password="0ab7"
 kontrollstavar_niva=100
+def temp_check():
+    while True:
+        try: 
+            temperatur=float(input("Vänligen ange en starttemperatur: "))
+            if 0 < temperatur < 2000:
+                return temperatur
+            else:
+                print("Temperaturen ej gilltig! Måste vara mellan 0 och 2000!")
+        except ValueError:
+            print("Vänligen skriv en siffra")
+def bransle_check():
+    while True:
+        try:
+            anrikat_bransle=float(input("Mängd uran kvar i procent: "))
+            if 0 < anrikat_bransle <= 100:
+                return anrikat_bransle
+            else:
+                print("Ej gilltigt värde! Måste vara mellan 0 och 100")
+        except ValueError:
+            print("Vänligen ange en siffra")
 while True:
     try:
         meny=int(input("Meny - inloggning: \n1: JENSEN\n2: Friläge\n3: Random\n4: Avsluta\n"))
@@ -23,12 +43,15 @@ while True:
                 if password==user_password:
                     temperatur=150
                     anrikat_bransle=5
+                    pumpar_status=True
+                    vattenflode=6
                     print("Lyckades!")
-                    print(temperatur, anrikat_bransle)
                     break
         elif meny==2:
-            temperatur=float(input("Temperaturen: "))
-            anrikat_bransle=float(input("Mängd uran kvar i procent: "))
+            temperatur=temp_check()
+            print(f"Starttemperaturen: {temperatur}°C godkänd")
+            anrikat_bransle=bransle_check()
+            print(f"Mängd uran kvar: {anrikat_bransle}% godkänd")
         elif meny==3:
             temperatur=random.uniform
             anrikat_bransle=random.uniform
